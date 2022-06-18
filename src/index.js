@@ -1,6 +1,6 @@
 const { Client, Collection, Intents } = require("discord.js");
 const config = require("./config.json");
-const Cache = require("./utils/cache");
+const RedisCache = require("./utils/RedisCache");
 const commandLoader = require("./utils/commandLoader");
 const eventLoader = require("./utils/eventLoader");
 
@@ -19,7 +19,7 @@ const client = new Client({
 })
 
 client.commands = new Collection();
-client.cache = new Cache(client, config.redis);
+client.cache = new RedisCache(client, config.redis);
 
 commandLoader(client);
 eventLoader(client);

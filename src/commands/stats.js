@@ -8,6 +8,7 @@ module.exports = {
     example: "stats",
     requiredPermissions: [],
     checks: [],
+    cooldown: 1000,
     /**
      * @param {Client} client 
      * @param {Message} message 
