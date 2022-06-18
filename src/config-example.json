@@ -2,7 +2,8 @@
     "bot": {
         "token": "",
         "prefix": "",
-        "guild": ""
+        "guild": "",
+        "cooldownCacheTTL": 259200
     },
     "discord": {
         "roles": {
@@ -10,10 +11,9 @@
             "mod": "",
             "helper": "",
             "staff": "",
-            "developer": "",
+            "newTicket": "",
             "owner": "",
             "member": "",
-            "client": "",
             "bot": ""
         },
         "commands": {},
@@ -23,15 +23,33 @@
             "userLogs": "",
             "ticketLogs": "",
             "dmLogs": "",
-            "welcome": ""
+            "welcome": "",
+            "suggestions": ""
         },
         "categories": {
-            "userCreation": "",
             "tickets": ""
         },
         "messages": {
-            "welcome": "Welcome to {server_name}, {user_ping}!"
-        }
+            "welcome": "Welcome to {server_name}, {user_ping}!",
+            "roleAdded": "You have been given the role {role_name}!",
+            "roleRemoved": "You have been removed from the role {role_name}!",
+            "coolDown": "Sorry, You have to wait {time} seconds before using this command again."
+        },
+        "reactionRoles": [
+            {
+                "messageId": "",
+                "reactions": [
+                    {
+                        "roleId": "",
+                        "emoji": ""
+                    },
+                    {
+                        "roleId": "",
+                        "emoji": ""
+                    }
+                ]
+            }
+        ]
     },
     "redis": {
         "host": "",
