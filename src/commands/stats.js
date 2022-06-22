@@ -1,5 +1,5 @@
 const { Client, Message, MessageEmbed } = require("discord.js");
-const User = require("../utils/Schemas/User");
+const Punishments = require("../utils/Schemas/Punishments");
 
 module.exports = {
     name: "stats",
@@ -24,7 +24,7 @@ module.exports = {
 
         const dbThen = Date.now();
 
-        await User.findOne({ userID: message.author.id });
+        await Punishments.findOne({ userID: message.author.id });
 
         const dbPing = Math.round(Date.now() - dbThen);
 

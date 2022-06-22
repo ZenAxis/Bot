@@ -11,7 +11,7 @@ module.exports = {
     run: async (client, oldMessage, newMessage) => {
 
         if (oldMessage.partial || newMessage.partial) {
-           return
+            return
         }
 
         if (oldMessage.channel.parentId == config.discord.categories.userCreation) return;

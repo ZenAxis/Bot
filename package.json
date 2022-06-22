@@ -4,7 +4,9 @@
   "description": "A Simple bot for ZenAxis's community",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "redis": "screen redis-server --dbfilename dump.rdb --dir /workspaces/Bot/db/redis",
+    "mongodb": "screen mongod --dbpath /workspaces/Bot/db/mongodb"
   },
   "repository": {
     "type": "git",
