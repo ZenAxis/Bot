@@ -16,6 +16,5 @@ module.exports = {
      * @param {Array} args 
      */
     run: async (client, message, args) => {
-        message.reply("You passed the checks :)")
     },
 }

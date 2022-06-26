@@ -1,5 +1,6 @@
 const chalk = require("chalk");
 const redis = require("redis");
+const DatabaseConnectionError = require("./Errors/DatabaseConnectionError");
 
 class RedisCache {
     /**
@@ -38,7 +39,7 @@ class RedisCache {
         })
 
         this.redis.on("error", (err) => {
-            console.log(chalk.red("[ERROR]"), `An error occured (${err.message})`, err.stack);
+            throw new DatabaseConnectionError(`An error occured (${err.message})`);
         })
 
         this.redis.on("ready", () => {

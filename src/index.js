@@ -3,6 +3,7 @@ const config = require("./config.json");
 const RedisCache = require("./utils/RedisCache");
 const commandLoader = require("./utils/commandLoader");
 const eventLoader = require("./utils/eventLoader");
+const interactionLoader = require("./utils/interactionLoader");
 
 const client = new Client({
     intents: [
@@ -13,16 +14,18 @@ const client = new Client({
         Intents.FLAGS.GUILD_BANS,
     ],
     allowedMentions: {
-        parse: ["users", "roles"],
+        parse: [],
     },
     partials: ["MESSAGE", "CHANNEL", "REACTION", "USER"],
 })
 
 client.commands = new Collection();
-client.cache = new RedisCache(client, config.redis);
+client.interactions = new Collection();
+client.cache = new RedisCache(config.redis);
 
 commandLoader(client);
 eventLoader(client);
+interactionLoader(client);
 
 process.on("unhandledRejection", err => {
     console.error("Unhandled promise rejection", err);

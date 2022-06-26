@@ -2,6 +2,7 @@ const { Client } = require("discord.js");
 const chalk = require("chalk");
 const path = require("node:path");
 const fs = require("node:fs");
+const CommandAlreadyExists = require("./Errors/CommandAlreadyExists");
 
 /**
  * @param {Client} client 
@@ -21,7 +22,7 @@ const commandLoader = (client) => {
                 if (client.commands.has(file)) {
                     const cmds = client.commands.get(file);
                     if (cmds.find(c => c.name === command.name)) {
-                        throw new Error(`Command '${command.name}' already exists in '${file}'`);
+                        throw new CommandAlreadyExists(`Command '${command.name}' already exists in '${file}'`);
                     } else {
                         client.commands.get(file).push(command);
                     }
@@ -35,7 +36,7 @@ const commandLoader = (client) => {
             const command = require(path.join(__dirname, "../commands", file));
 
             if (client.commands.has(command.name)) {
-                throw new Error(`Command '${command.name}' already exists`);
+                throw new CommandAlreadyExists(`Command '${command.name}' already exists`);
             }
 
             client.commands.set(command.name, command);
